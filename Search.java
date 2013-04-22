@@ -21,20 +21,20 @@ import java.io.*;
 
 public class Search{
 
-    /* series of nodes in solution path */
-    private static LinkedList<Node> solution = new LinkedList<Node>();
-    
-    /* useful statistics */
-    private static int Open = 0;
-    private static int Ignored = 0;
-    private static int Closed = 0;
+    /* static variables */
+    private static LinkedList<Node> solution = new LinkedList<Node>();  // series of solution nodes
+    private static int Open = 0;   // number of open nodes
+    private static int Ignored = 0;  // number of ignored nodes
+    private static int Closed = 0;  // number of closed nodes
+    private static long start_time = 0;
+    private static long elapsed_time = 0;
 
     /*
      * printStats(Node current, String searchName)
      * prints all the required information after a test has been run
      */
     public static void printStats(Node current){
-        System.out.println("Output:");
+        System.out.println("---Output---");
         int depth = current.getDepth();
         while(current.getParent()!=null){    
             solution.addFirst(current);
@@ -48,11 +48,13 @@ public class Search{
             // System.out.print(Node.getDirection(first, solution.peek())+ " ");
         //print number of moves
         }
-        System.out.print("\nDepth:\t\t" + depth + 
+        System.out.print("\n\n---Statistics----" +
+                         "\nSeconds Elapsed:\t" + elapsed_time +
+                         "\nDepth:\t\t" + depth + 
                          "\nNodes Generated:\t" + (Open+Ignored+Closed) + 
                          "\nNodes Ignored:\t" + Ignored + 
                          "\nOpen Nodes:\t" + Open + 
-                         "\nClosed Nodes:\t" + Closed);
+                         "\nClosed Nodes:\t" + Closed + "\n");
     }
   
     /*
@@ -60,6 +62,7 @@ public class Search{
      * runs breadth first search on the start/end states
      */
     public static void bfs(Node start){
+        start_time = System.nanoTime();
         Queue<Node> open = new LinkedList<Node>();    // open list
         Queue<Node> closed = new LinkedList<Node>();    // closed list
         ArrayList<Point> moves = new ArrayList<Point>();    // legal moves
@@ -87,6 +90,7 @@ public class Search{
                 System.out.println("Exception: " + e);
             }
             if (Play.check(str)){ // the response contains "true"
+                elapsed_time = (System.nanoTime() - start_time)/1000000000;
                 // Count the number of open nodes
                 while (!open.isEmpty()){
                     Node removed = open.remove();
