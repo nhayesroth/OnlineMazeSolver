@@ -2,12 +2,12 @@
  * Node.java
  * ------------
  * Name: Nathan Hayes-Roth
- * Flipboard Challenge
+ * Online Maze Solving Project
  * ------------
  * Handles specific states of the maze which will be passed to other programs.
  */
 
-package Flipboard;
+package OnlineMazeSolver;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -122,7 +122,7 @@ public class Node implements Comparable{
     
     /*
      * toString(Point)
-     * overrides the typical Point.toString() method to accomodate int values
+     * overrides the typical Point.toString() method to accommodate int values
      */
     public static String toString(Point point){
         String to_return = "(";

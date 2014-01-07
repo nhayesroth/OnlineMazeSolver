@@ -2,12 +2,12 @@
  * Play.java
  * ------------
  * Name: Nathan Hayes-Roth
- * Flipboard Challenge
+ * Online Maze Solver
  * ------------
  * Administers all tests and operations.
  */
 
-package Flipboard;
+package OnlineMazeSolver;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.lang.String;
 public class Play{
     
     /* url to access the challenge */
-    private static String start_url = "http://challenge.flipboard.com/m?s=6377401356002357802.13&x=0&y=0";
+    private static String start_url = "This url has been redacted.";
     public static String[] url_pieces = splitURL(start_url);
     
     /* start node */
@@ -115,14 +115,3 @@ public class Play{
         Search.bfs(start);
     }
 }
-
-
-        
-        
-    
-             
-    
-    
-    
-    
-    

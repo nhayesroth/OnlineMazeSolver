@@ -2,12 +2,12 @@
  * Search.java
  * ------------
  * Name: Nathan Hayes-Roth
- * Flipboard Challenge
+ * Online Maze Solver
  * ------------
  * Holds the search algorithm to be implemented in Play.java.
  */
 
-package Flipboard;
+package OnlineMazeSolver;
 
 import java.awt.Point;
 import java.util.ArrayList;
